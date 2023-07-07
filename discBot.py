@@ -62,12 +62,11 @@ async def on_message_delete(message):
 async def on_message_edit(before,after):
     if before.author == bot.user:
         return;
-    author = before.author
     before_content = before.content
     after_content = after.content
     channel = before.channel
-    await channel.send("{}: {}".format(author,before_content))
-    await channel.send("{}: {}".format(author,after_content))
+    await channel.send("Before: {}".format(before_content))
+    await channel.send("After: {}".format(after_content))
 
 @bot.event
 async def on_reaction_add(reaction,user):
