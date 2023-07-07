@@ -8,7 +8,7 @@ BOT_CHANNEL = 1234 #change this to your own bot channel
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
-bot = commands.Bot(command_prefix = commands.when_mentioned_or("!"), intents = discord.Intents.all())
+bot = commands.Bot(command_prefix = commands.when_mentioned_or("!"), intents=intents)
 
 mygroup = app_commands.Group(name="greetings", description="Welcomes users")
 
