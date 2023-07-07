@@ -3,11 +3,12 @@ from discord.ext import commands
 from discord import app_commands
 BOT_TOKEN = "ABCD" #change this to your own bot token
 
-BOT_CHANNEL =  1234 #change this to your own bot channel
+BOT_CHANNEL = 1234 #change this to your own bot channel
 
 intents = discord.Intents.default()
+intents.members = True
 intents.message_content = True
-bot = commands.Bot(command_prefix = commands.when_mentioned_or("!"), intents = intents)
+bot = commands.Bot(command_prefix = commands.when_mentioned_or("!"), intents = discord.Intents.all())
 
 mygroup = app_commands.Group(name="greetings", description="Welcomes users")
 
@@ -47,6 +48,7 @@ async def on_member_remove(member):
 async def on_message(message):
     author = message.author
     content = message.content
+    await bot.process_commands(message)
     print("{}: {}".format(author,content))
 
 @bot.event
