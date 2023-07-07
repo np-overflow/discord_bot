@@ -70,25 +70,28 @@ async def on_message_edit(before,after):
 
 @bot.event
 async def on_reaction_add(reaction,user):
+    if(user == bot.user):
+        return;
     channel = reaction.message.channel
     name = user.name
     emoji = reaction.emoji
     content = reaction.message.content
     await channel.send("{} has reacted with {} to the message {}".format(name,emoji, content))
 
+
 @bot.event
 async def on_reaction_remove(reaction,user):
     channel = reaction.message.channel
     name = user.name
     emoji = reaction.emoji
-    content = reaction.message
+    content = reaction.message.content
     await channel.send("{} has removed their reaction of {} to the message {}".format(name,emoji, content))
 
 @bot.command()
 async def ping(ctx):    
     message = await ctx.send("Pong!")
-    await ctx.add_reaction("🏓") #can be either ctx or message
-
+    await ctx.message.add_reaction("🏓") #can be either ctx or message
+    
 @bot.command()
 async def delete(ctx, user:discord.User):
     async for message in ctx.channel.history(limit = None):
