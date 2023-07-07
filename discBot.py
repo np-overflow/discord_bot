@@ -73,7 +73,7 @@ async def on_reaction_add(reaction,user):
     channel = reaction.message.channel
     name = user.name
     emoji = reaction.emoji
-    content = reaction.message
+    content = reaction.message.content
     await channel.send("{} has reacted with {} to the message {}".format(name,emoji, content))
 
 @bot.event
@@ -94,6 +94,7 @@ async def delete(ctx, user:discord.User):
     async for message in ctx.channel.history(limit = None):
         if message.author == user and message.id != ctx.message.id:
             await message.delete()  
+            break
 
 @bot.tree.command(description="Greets user")
 async def hello(interaction: discord.Interaction):
