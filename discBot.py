@@ -42,7 +42,7 @@ async def on_member_join(member):
 @bot.event
 async def on_member_remove(member):
     channel = bot.get_channel(BOT_CHANNEL)
-    await channel.send("Goodbye, you will be missed")
+    await channel.send("Goodbye, you will be deeply missed :(")
     
 @bot.event
 async def on_message(message):
@@ -70,7 +70,7 @@ async def on_message_edit(before,after):
 
 @bot.event
 async def on_reaction_add(reaction,user):
-    if(user == bot.user):
+    if user == bot.user:
         return;
     channel = reaction.message.channel
     name = user.name
