@@ -27,17 +27,7 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     channel = bot.get_channel(BOT_CHANNEL)
-    name = member.display_name
-    pfp = member.display_avatar
-    embed = discord.Embed(title="Welcome to the server", 
-                          description="Welcome to the server {}".format(member.mention), 
-                          colour = discord.Colour.random())
-    embed.set_author(name="{}".format(name))
-    embed.set_thumbnail(url="{}".format(pfp))
-    embed.add_field(name="This is field", value="This field is just a value")
-    embed.set_footer(text="Hope you enjoy your time in this server!")
-    ##await channel.send("Welcome to the server {}".format(member.mention))
-    await channel.send(embed=embed)
+    await channel.send("Welcome to the server {}".format(member.mention))
     
 @bot.event
 async def on_member_remove(member):
