@@ -51,7 +51,7 @@ async def on_message_delete(message):
 @bot.event
 async def on_message_edit(before,after):
     if before.author == bot.user:
-        return;
+        return
     before_content = before.content
     after_content = after.content
     channel = before.channel
@@ -61,7 +61,7 @@ async def on_message_edit(before,after):
 @bot.event
 async def on_reaction_add(reaction,user):
     if user == bot.user:
-        return;
+        return
     channel = reaction.message.channel
     name = user.name
     emoji = reaction.emoji
