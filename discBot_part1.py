@@ -1,6 +1,7 @@
 import discord 
 from discord.ext import commands
 from discord import app_commands
+
 BOT_TOKEN = "ABCD" #change this to your own bot token
 
 BOT_CHANNEL = 1234 #change this to your own bot channel
